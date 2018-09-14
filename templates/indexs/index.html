@@ -1,0 +1,236 @@
+{%extends 'base.html'%}
+    {% block head %}
+    <script type="text/javascript" src="/static/js/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="/static/js/slide.js"></script>
+        <script type="text/javascript">
+            BCSlideshow('focuspic');
+            let oFruit = document.getElementById('fruit_more');
+            let oShownum = document.getElementById('show_count');
+
+            let hasorder = localStorage.getItem('order_finish');
+
+            if(hasorder)
+            {
+                oShownum.innerHTML = '2';
+            }
+
+            oFruit.onclick = function(d){
+                window.location.href = 'list.html';
+            };
+
+
+
+            if(hasorder)
+            {
+                oShownum.innerHTML = '2';
+            }
+
+            oFruit.onclick = function(){
+                window.location.href = 'list.html';
+            }
+        </script>
+
+
+    {% endblock head %}
+
+    {% block body %}
+        {% include 'header.html' %}
+        {% include 'search.html' %}
+        <div class="navbar_con">
+            <div class="navbar">
+                <h1 class="fl">全部动漫分类</h1>
+                <ul class="navlist fl">
+                    <li><a href="/">首页</a></li>
+                    <li class="interval">|</li>
+                    <li><a href="#">小彩虹APP</a></li>
+                    <li class="interval">|</li>
+                    <li><a href="#">抽奖</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="center_con clearfix">
+            <ul class="subnav fl">
+                <li><a href="#model01" class="fruit">国产动漫</a></li>
+                <li><a href="#model02" class="seafood">日本动漫</a></li>
+                <li><a href="#model03" class="meet">美国动漫</a></li>
+                <li><a href="#model04" class="egg">韩国动漫</a></li>
+                <li><a href="#model05" class="vegetables">欧洲动漫</a></li>
+                <li><a href="#model06" class="ice">其他</a></li>
+            </ul>
+            <div class="slide fl">
+                <ul class="slide_pics">
+                    <li><img src="/static/images/slide.jpg" alt="幻灯片"></li>
+                    <li><img src="/static/images/slide02.jpg" alt="幻灯片"></li>
+                    <li><img src="/static/images/slide03.jpg" alt="幻灯片"></li>
+                    <li><img src="/static/images/slide04.jpg" alt="幻灯片"></li>
+                </ul>
+                <div class="prev"></div>
+                <div class="next"></div>
+                <ul class="points"></ul>
+            </div>
+            <div class="adv fl">
+                <a href="#"><img src="/static/images/adv01.jpg"></a>
+                <a href="#"><img src="/static/images/adv02.jpg"></a>
+            </div>
+        </div>
+
+        <div class="list_model">
+            <div class="list_title clearfix">
+                <h3 class="fl" id="model01">国产动漫</h3>
+                <div class="subtitle fl">
+                    <span>|</span>
+                    {%for g in fruit2%}
+                    <a href="/goods/{{g.id}}">{{g.gtitle|slice:'10'}}...</a>
+                    {%endfor%}
+                </div>
+                <a href="goods/list9_1_1" class="goods_more fr" id="fruit_more">查看更多 ></a>
+            </div>
+
+            <div class="goods_con clearfix">
+                <div class="goods_banner fl"><img src="/static/images/banner01.jpg"></div>
+                <ul class="goods_list fl">
+                    {%for g in fruit%}
+                    <li>
+                        <!--images/goods/goods003.jpg-->
+                        <h4><a href="/{{g.id}}">{{g.gtitle|slice:'10'}}...</a></h4>
+                        <a href="/goods/{{g.id}}"><img src="/static/{{g.gpic}}"></a>
+                        <div class="prize">点击量{{g.gprice}}</div>
+                    </li>
+                    {%endfor%}
+                </ul>
+            </div>
+        </div>
+
+        <div class="list_model">
+            <div class="list_title clearfix">
+                <h3 class="fl" id="model02">日本动漫</h3>
+                <div class="subtitle fl">
+                    <span>|</span>
+                    {%for g in fish2%}
+                    <a href="/goods/{{g.id}}">{{g.gtitle|slice:'10'}}...</a>
+                    {%endfor%}
+                </div>
+                <a href="goods/list10_1_1" class="goods_more fr">查看更多 ></a>
+            </div>
+
+            <div class="goods_con clearfix">
+                <div class="goods_banner fl"><img src="/static/images/banner02.jpg"></div>
+                <ul class="goods_list fl">
+                    {%for g in fish%}
+                    <li>
+                        <h4><a href="/goods/{{g.id}}">{{g.gtitle|slice:'10'}}...</a></h4>
+                        <a href="/goods/{{g.id}}"><img src="/static/{{g.gpic}}"></a>
+                        <div class="prize">点击量{{g.gprice}}</div>
+                    </li>
+                    {%endfor%}
+                </ul>
+            </div>
+        </div>
+
+        <div class="list_model">
+            <div class="list_title clearfix">
+                <h3 class="fl" id="model03">美国动漫</h3>
+                <div class="subtitle fl">
+                    <span>|</span>
+                    {%for g in meat%}
+                    <a href="/goods/{{g.id}}">{{g.gtitle|slice:'10'}}...</a>
+                    {%endfor%}
+                </div>
+                <a href="goods/list13_1_1" class="goods_more fr">查看更多 ></a>
+            </div>
+
+            <div class="goods_con clearfix">
+                <div class="goods_banner fl"><img src="/static/images/banner03.jpg"></div>
+                <ul class="goods_list fl">
+                    {%for g in meat2%}
+                    <li>
+                        <h4><a href="/goods/{{g.id}}">{{g.gtitle|slice:'10'}}...</a></h4>
+                        <a href="/goods/{{g.id}}"><img src="/static/{{g.gpic}}"></a>
+                        <div class="prize">点击量{{g.gprice}}</div>
+                    </li>
+                    {%endfor%}
+                </ul>
+            </div>
+        </div>
+
+        <div class="list_model">
+            <div class="list_title clearfix">
+                <h3 class="fl" id="model04">欧洲动漫</h3>
+                <div class="subtitle fl">
+                    <span>|</span>
+                    {%for g in egg%}
+                    <a href="/goods/{{g.id}}">{{g.gtitle|slice:'10'}}...</a>
+                    {%endfor%}
+                </div>
+                <a href="goods/list14_1_1" class="goods_more fr">查看更多 ></a>
+            </div>
+
+            <div class="goods_con clearfix">
+                <div class="goods_banner fl"><img src="/static/images/banner04.jpg"></div>
+                <ul class="goods_list fl">
+                    {%for g in egg2%}
+                    <li>
+                        <h4><a href="/goods/{{g.id}}">{{g.gtitle|slice:'10'}}...</a></h4>
+                        <a href="/goods/{{g.id}}"><img src="/static/{{g.gpic}}"></a>
+                        <div class="prize">点击量{{g.gprice}}</div>
+                    </li>
+                    {%endfor%}
+                </ul>
+            </div>
+        </div>
+
+        <div class="list_model">
+            <div class="list_title clearfix">
+                <h3 class="fl" id="model05">韩国动漫</h3>
+                <div class="subtitle fl">
+                    <span>|</span>
+                    {%for g in vegetables%}
+                    <a href="/goods/{{g.id}}">{{g.gtitle|slice:'10'}}...</a>
+                    {%endfor%}
+                </div>
+                <a href="goods/list15_1_1" class="goods_more fr">查看更多 ></a>
+            </div>
+
+            <div class="goods_con clearfix">
+                <div class="goods_banner fl"><img src="/static/images/banner05.jpg"></div>
+                <ul class="goods_list fl">
+                    {%for g in vegetables2%}
+                    <li>
+                        <h4><a href="/goods/{{g.id}}">{{g.gtitle|slice:'10'}}...</a></h4>
+                        <a href="/goods/{{g.id}}"><img src="/static/{{g.gpic}}"></a>
+                        <div class="prize">点击量{{g.gprice}}</div>
+                    </li>
+                    {%endfor%}
+                </ul>
+            </div>
+        </div>
+
+        <div class="list_model">
+            <div class="list_title clearfix">
+                <h3 class="fl" id="model06">其他</h3>
+                <div class="subtitle fl">
+                    <span>|</span>
+                    {%for g in frozen%}
+                    <a href="/goods/{{g.id}}">{{g.gtitle|slice:'10'}}...</a>
+                    {%endfor%}
+                </div>
+                <a href="goods/list16_1_1" class="goods_more fr">查看更多 ></a>
+            </div>
+
+            <div class="goods_con clearfix">
+                <div class="goods_banner fl"><img src="/static/images/banner06.jpg"></div>
+                <ul class="goods_list fl">
+                    {%for g in frozen2%}
+                    <li>
+                        <h4><a href="/goods/{{g.id}}">{{g.gtitle|slice:'10'}}...</a></h4>
+                        <a href="/goods/{{g.id}}"><img src="/static/{{g.gpic}}"></a>
+                        <div class="prize">点击量{{g.gprice}}</div>
+                    </li>
+                    {%endfor%}
+                </ul>
+            </div>
+        </div>
+        {% include 'footer.html' %}
+    {%endblock body%}
+

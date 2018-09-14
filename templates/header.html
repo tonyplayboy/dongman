@@ -1,0 +1,27 @@
+<div class="header_con">
+    <div class="header">
+        <div class="welcome fl">欢迎来到彩虹动漫网!</div>
+        <div class="fr">
+            {% if user %}
+                 <div class="user_link fl">
+                    欢迎您：<a href="/user/info">{{ user.username }}</a>
+                    <span>|</span>
+                     <a href="/user/logout/">退出</a>
+                    <span>|</span>
+                    <a href="/user/info">用户中心</a>
+                    <span>|</span>
+                    <a href="/cart/">我收藏的动漫</a>
+                    <span>|</span>
+                    <a href="/user/user_center_view&1/">观看历史</a>
+                </div>
+            {% else %}
+                <div class="login_btn fl">
+                    <a href="/user/login/">登录</a>
+                    <span>|</span>
+                    <a href="/user/register">注册</a>
+                </div>
+            {% endif %}
+
+        </div>
+    </div>
+</div>
