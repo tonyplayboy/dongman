@@ -99,8 +99,8 @@ def detail(request, id):
     news = goods.gtype.goodsinfo_set.order_by('-id')[0:2]
     # print '*' * 10
     # print news[0].gtitle
-    # print goodtype    猪牛羊肉
-    # print goods.gtype  猪牛羊肉
+    # print goodtype
+    # print goods.gtype
 
     context = {'title': goods.gtype.ttitle, 'guest_cart': 1,
              'g': goods, 'newgood': news, 'id': id,

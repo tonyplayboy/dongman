@@ -1,6 +1,7 @@
 from __future__ import unicode_literals
 from tinymce.models import HTMLField
-from django.db import models
+# from django.db import models
+from django.db import *
 
 
 # Create your models here.
